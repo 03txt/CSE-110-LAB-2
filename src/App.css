@@ -51,6 +51,16 @@ body {
  cursor: pointer;
 }
 
+.note-item.light {
+  background-color: #ffffff; /* White for light theme */
+  color: #000000; /* Black text */
+}
+
+.note-item.dark {
+  background-color: #444444; /* Dark gray for dark theme */
+  color: #ffffff; /* White text */
+}
+
 .notes-header {
  display: flex;
  justify-content: flex-end;

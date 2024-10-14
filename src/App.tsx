@@ -3,7 +3,6 @@ import logo from './logo.svg';
 import { Label, Note } from "./types"; 
 import { dummyNotesList } from "./constants";
 import { ThemeContext, themes } from "./themeContext";
-import ToggleTheme from "./hooksExercise";
 import './App.css';
 
 
@@ -13,6 +12,8 @@ type FaveState = {
 
 function App() 
 {
+
+  const theme = useContext(ThemeContext);
   const [notes, setNotes] = useState(dummyNotesList); 
   const initialNote = {
     id: -1,
@@ -43,8 +44,6 @@ function App()
 
   const[faveNotes, setFave] = useState<FaveState>({});
 
-  const theme = useContext(ThemeContext);
-
   const toggleFavorite = (id: number) => {
     setFave((oldFaves) => ({
       ...oldFaves,
@@ -54,9 +53,11 @@ function App()
 
   const faveList = notes.filter(note => faveNotes[note.id]);
 
+
 return (
    <div className='app-container' style={{ backgroundColor: theme.background, color: theme.foreground }}>
 
+    <div id="sideBar">
   <form className="note-form" onSubmit={createNoteHandler}>
     	<div contentEditable="true">
       	<input
@@ -90,11 +91,13 @@ return (
     	<div><button type="submit">Create Note</button></div>
   	</form>
 
+    </div>
+
   	<div className="notes-grid">
     	{notes.map((note) => (
       	<div
         	key={note.id}
-        	className="note-item"
+        	className={`note-item ${theme === themes.light ? 'light' : 'dark'}`}
 
           >
         	<div className="notes-header">
@@ -127,10 +130,9 @@ return (
           ))}
         </ul>
       </div>
-
-
-	</div>  );
-
+	</div> 
+  );
 
 }
+
 export default App;

@@ -14,9 +14,14 @@ function ToggleTheme() {
  
   return (
     <ThemeContext.Provider value={currentTheme}>
-        <button onClick={toggleTheme} style={{ backgroundColor: currentTheme.background, color: currentTheme.foreground }}> 
-          Toggle Theme 
+
+    <button 
+          onClick={toggleTheme} 
+          style={{ backgroundColor: currentTheme.background, color: currentTheme.foreground }}
+        >
+          Toggle Theme
         </button>
+        <App/>
     </ThemeContext.Provider>
   );
  }
