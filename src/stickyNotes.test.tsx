@@ -12,7 +12,7 @@ describe("Create StickyNote", () => {
     test("creates a new note", () => {
       render(<StickyNotes />);
    
-   // Please make sure your sticky note has a title and content input field with the following placeholders.
+
       const createNoteTitleInput = screen.getByPlaceholderText("Note Title");
       const createNoteContentTextarea =
         screen.getByPlaceholderText("Note Content");
